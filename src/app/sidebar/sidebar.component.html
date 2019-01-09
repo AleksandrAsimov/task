@@ -1,0 +1,29 @@
+<div class="city">
+  <div class="title">CITY</div>
+  <div (click)="dropdownIsOpen = true" class="selector">
+    <span>{{currentCity.name}}</span> <i class="arrow open"></i></div>
+  <ul (click)="dropdownClose()" *ngIf="dropdownIsOpen" class="dropdown">
+    <li (click)="dropdownClose(el)" *ngFor="let el of cities" [ngClass]="{'current' : el.name === currentCity}">{{el.name}}</li>
+  </ul>
+  <div (click)="dropdownClose()" *ngIf="dropdownIsOpen" class="drpdwn-bg"></div>
+</div>
+
+<div class="categories">
+  <div class="title">CATEGORIES</div>
+  <div class="category" *ngFor="let category of categories">
+    <div class="checkbox check" [ngClass]="{'check' : category.status}" (click)="category.status = !category.status"></div>
+    <div class="text">{{category.name}}</div> <span class="count"> (11) </span>
+  </div>
+</div>
+
+<div class="price">
+  <div class="title">PRICE</div>
+  <div class="slider">
+    <div class="round left_round" (mousedown)="addLis('left')" [ngStyle]="{'transform' : leftRoundX}"></div>
+    <div class="round right_round" (mousedown)="addLis('right')" [ngStyle]="{'transform' : rightRoundX}"></div>
+    <div class="line count" [ngStyle]="{'transform' : leftRoundX, 'width' : lineWidth }"></div>
+    <div class="line"></div>
+  </div>
+  <div class="maxMin">${{currMinPrice}} &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;${{currMaxPrice}}</div>
+  <button (click)="filter()" class="btn">FILTER</button>
+</div>

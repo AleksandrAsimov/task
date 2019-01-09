@@ -1,0 +1,12 @@
+<div class="item">
+  <div class="img" [ngStyle]="{'background-image' : 'url(https://static1.squarespace.com/static/55bd9385e4b0bf5a19e88be0/t/55f06072e4b0287ac65280b8/1441816692542/HomeComfort.jpg?format=1500w)'}">
+    <div class="city">{{item.city.name}}</div>
+  </div>
+  <div class="border-block">
+    <div class="title">{{item.name}}</div>
+    <div class="bottom-block">
+      <div class="category">{{item.category.name}}</div>
+      <div class="price">${{item.price}}</div>
+    </div>
+  </div>
+</div>
